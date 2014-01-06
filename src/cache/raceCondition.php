@@ -11,8 +11,9 @@ class RaceCondition extends UseCase {
         $key = $cache->get(self::KEYNAME);
         /** some code **/
         if ($this->isUpdateRequest()) {
-            $cache->delete(self::KEYNAME);
+//            $cache->delete(self::KEYNAME);
             $this->updateOperation();
+            $cache->delete(self::KEYNAME);
             $logger->log('DONE');
         }
     }
