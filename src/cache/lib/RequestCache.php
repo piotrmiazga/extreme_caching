@@ -51,6 +51,14 @@ class RequestCache implements Cache {
         unset(self::$cache[$key]);
     }
 
+
+   public function add($key, $value, $ttl = 0) {
+       if (!array_key_exists($key, self::$cache)) {
+           return $this->set($key, $value, $ttl);
+        } else {
+            return false;
+   }
+
     public function flush() {
         self::$cache = [];
         self::$isHit = null;

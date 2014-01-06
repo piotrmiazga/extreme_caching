@@ -31,6 +31,11 @@ class VerboseCache extends ObjectWrapper implements Cache {
       $this->_logger->log("DELETE:$key");
       return $this->getWrapped()->delete($key);
     }
+  
 
+    public function add($key, $var, $ttl = 0) {
+      $this->_logger->log("ADD:$key");
+      return $this->getWrapped()->add($key);
+    }
 
 }

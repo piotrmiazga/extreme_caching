@@ -32,4 +32,13 @@ Interface Cache {
      */
     public function delete($key);
 
+    /**
+     * Adds key to cache only when key doesn't exist
+     *
+     * @param $key string
+     * @param $value mixed
+     * @param $ttl int
+     * @return bool
+     */
+    public function add($key, $var, $ttl = 0);
 }
