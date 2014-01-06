@@ -57,9 +57,10 @@ class RequestCache implements Cache {
            return $this->set($key, $value, $ttl);
         } else {
             return false;
+        }
    }
 
-    public function flush() {
+   public function flush() {
         self::$cache = [];
         self::$isHit = null;
     }

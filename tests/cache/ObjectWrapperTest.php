@@ -5,7 +5,7 @@
  * Date: 05/01/14
  * Time: 11:53 PM
  */
-include('../../src/cache/lib/ObjectWrapper.php');
+include('../../src/common/ObjectWrapper.php');
 
 
 class ObjectWrapperTest extends PHPUnit_Framework_TestCase {
