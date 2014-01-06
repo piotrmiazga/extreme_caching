@@ -1,0 +1,58 @@
+read(12, "GET /extreme/opcode/hello.php HT"..., 8000) = 423
+stat("/var/www/extreme/opcode/hello.php", {st_mode=S_IFREG|0644, st_size=159, ...}) = 0
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffef3126000
+setitimer(ITIMER_PROF, {it_interval={0, 0}, it_value={60, 0}}, NULL) = 0
+rt_sigaction(SIGPROF, {0x7ffeef1b59a0, [PROF], SA_RESTORER|SA_RESTART, 0x7ffef2456250}, {SIG_DFL, [], 0}, 8) = 0
+rt_sigprocmask(SIG_UNBLOCK, [PROF], NULL, 8) = 0
+getcwd("/", 4095)           = 2
+chdir("/var/www/extreme/opcode") = 0
+setitimer(ITIMER_PROF, {it_interval={0, 0}, it_value={30, 0}}, NULL) = 0
+fcntl(9, F_SETLK, {type=F_RDLCK, whence=SEEK_SET, start=1, len=1}) = 0
+lstat("/var/www/extreme/opcode/hello.php", {st_mode=S_IFREG|0644, st_size=159, ...}) = 0
+lstat("/var/www/extreme/opcode", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+lstat("/var/www/extreme", {st_mode=S_IFLNK|0777, st_size=46, ...}) = 0
+readlink("/var/www/extreme", "/home/raynor/presentations/extreme_caching/src", 4096) = 46
+lstat("/home/raynor/presentations/extreme_caching/src", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+lstat("/home/raynor/presentations/extreme_caching", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+lstat("/home/raynor/presentations", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+lstat("/home/raynor", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+lstat("/home", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+open("/home/raynor/presentations/extreme_caching/src/opcode/hello.php", O_RDONLY) = 13
+fstat(13, {st_mode=S_IFREG|0644, st_size=159, ...}) = 0
+fstat(13, {st_mode=S_IFREG|0644, st_size=159, ...}) = 0
+fstat(13, {st_mode=S_IFREG|0644, st_size=159, ...}) = 0
+fstat(13, {st_mode=S_IFREG|0644, st_size=159, ...}) = 0
+mmap(NULL, 159, PROT_READ, MAP_SHARED, 13, 0) = 0x7ffef3125000
+stat("/home/raynor/presentations/extreme_caching/src/opcode/hello.php", {st_mode=S_IFREG|0644, st_size=159, ...}) = 0
+fcntl(9, F_SETLKW, {type=F_WRLCK, whence=SEEK_SET, start=0, len=1}) = 0
+fcntl(9, F_SETLK, {type=F_UNLCK, whence=SEEK_SET, start=0, len=1}) = 0
+munmap(0x7ffef3125000, 159) = 0
+close(13)                   = 0
+fcntl(9, F_SETLKW, {type=F_WRLCK, whence=SEEK_SET, start=0, len=1}) = 0
+fcntl(9, F_SETLK, {type=F_UNLCK, whence=SEEK_SET, start=0, len=1}) = 0
+getcwd("/home/raynor/presentations/extreme_caching/src/opcode", 4096) = 54
+lstat("/home/raynor/presentations/extreme_caching/src/opcode/util.php", 0x7fff95844d40) = -1 ENOENT (No such file or directory)
+lstat("/home/raynor/presentations/extreme_caching/src/opcode/lib/util.php", {st_mode=S_IFREG|0644, st_size=76, ...}) = 0
+lstat("/home/raynor/presentations/extreme_caching/src/opcode/lib", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+lstat("/home/raynor/presentations/extreme_caching/src/opcode", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+open("/home/raynor/presentations/extreme_caching/src/opcode/lib/util.php", O_RDONLY) = 13
+fstat(13, {st_mode=S_IFREG|0644, st_size=76, ...}) = 0
+fstat(13, {st_mode=S_IFREG|0644, st_size=76, ...}) = 0
+fstat(13, {st_mode=S_IFREG|0644, st_size=76, ...}) = 0
+fstat(13, {st_mode=S_IFREG|0644, st_size=76, ...}) = 0
+mmap(NULL, 76, PROT_READ, MAP_SHARED, 13, 0) = 0x7ffef3125000
+stat("/home/raynor/presentations/extreme_caching/src/opcode/lib/util.php", {st_mode=S_IFREG|0644, st_size=76, ...}) = 0
+fcntl(9, F_SETLKW, {type=F_WRLCK, whence=SEEK_SET, start=0, len=1}) = 0
+fcntl(9, F_SETLK, {type=F_UNLCK, whence=SEEK_SET, start=0, len=1}) = 0
+munmap(0x7ffef3125000, 76)  = 0
+close(13)                   = 0
+chdir("/")                  = 0
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffef3124000
+setitimer(ITIMER_PROF, {it_interval={0, 0}, it_value={0, 0}}, NULL) = 0
+fcntl(9, F_SETLK, {type=F_UNLCK, whence=SEEK_SET, start=0, len=0}) = 0
+setitimer(ITIMER_PROF, {it_interval={0, 0}, it_value={0, 0}}, NULL) = 0
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffef3122000
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ffef3120000
+read(12, 0x7ffef3128048, 8000) = -1 EAGAIN (Resource temporarily unavailable)
+writev(12, [{"HTTP/1.1 200 OK\r\nDate: Thu, 02 J"..., 215}, {"Hello world\n", 12}], 2) = 227
+write(8, "::1 - - [01/Jan/2014:22:35:13 -0"..., 228) = 228

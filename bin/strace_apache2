@@ -1,0 +1,2 @@
+#!/bin/bash
+ps auxw | grep sbin/apache | awk '{print"-p " $2}' | xargs strace

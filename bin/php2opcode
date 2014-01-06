@@ -1,0 +1,2 @@
+#!/bin/bash
+php -d vld.active=1 -d vld.execute=0 -f $1

@@ -1,0 +1,17 @@
+read(12, "GET /extreme/opcode/hello.php HT"..., 8000) = 423
+stat("/var/www/extreme/opcode/hello.php", {st_mode=S_IFREG|0644, st_size=159, ...}) = 0
+setitimer(ITIMER_PROF, {it_interval={0, 0}, it_value={60, 0}}, NULL) = 0
+rt_sigaction(SIGPROF, {0x7f71a8d5a9a0, [PROF], SA_RESTORER|SA_RESTART, 0x7f71abffb250}, {0x7f71a8d5a9a0, [PROF], SA_RESTORER|SA_RESTART, 0x7f71abffb250}, 8) = 0
+rt_sigprocmask(SIG_UNBLOCK, [PROF], NULL, 8) = 0
+getcwd("/", 4095)           = 2
+chdir("/var/www/extreme/opcode") = 0
+setitimer(ITIMER_PROF, {it_interval={0, 0}, it_value={30, 0}}, NULL) = 0
+fcntl(9, F_SETLK, {type=F_RDLCK, whence=SEEK_SET, start=1, len=1}) = 0
+getcwd("/home/raynor/presentations/extreme_caching/src/opcode", 4096) = 54
+chdir("/")                  = 0
+setitimer(ITIMER_PROF, {it_interval={0, 0}, it_value={0, 0}}, NULL) = 0
+fcntl(9, F_SETLK, {type=F_UNLCK, whence=SEEK_SET, start=0, len=0}) = 0
+setitimer(ITIMER_PROF, {it_interval={0, 0}, it_value={0, 0}}, NULL) = 0
+read(12, 0x7f71acccb048, 8000) = -1 EAGAIN (Resource temporarily unavailable)
+writev(12, [{"HTTP/1.1 200 OK\r\nDate: Thu, 02 J"..., 215}, {"Hello world\n", 12}], 2) = 227
+write(8, "::1 - - [01/Jan/2014:22:13:31 -0"..., 228) = 228
