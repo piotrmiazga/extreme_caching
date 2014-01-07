@@ -2,7 +2,13 @@
 
 class CacheWrapper extends ObjectWrapper {
 
+    /**
+     * @var Cache
+     */
     protected $_cache;
+    /**
+     * @var int
+     */
     protected $ttl;
 
     public function __construct($object, Cache $cache, $ttl = 0) {
@@ -18,11 +24,13 @@ class CacheWrapper extends ObjectWrapper {
 
         switch($param) {
             case 'flush' :
-                $this->_flushCache($wrappedMethod, $arguments);
+                return $this->_flushCache($wrappedMethod, $arguments);
             case 'key' :
                 return $this->_createKey($wrappedMethod, $arguments);
+            case 'cached' :
+                return $this->_fetchFromCache($wrappedMethod, $arguments);
             default :
-                return $this->_fetchFromCache($method, $arguments);
+                return parent::__call($method, $arguments);
         }
     }
 
@@ -42,6 +50,6 @@ class CacheWrapper extends ObjectWrapper {
     }
 
     private function _flushCache($method, $arguments) {
-        $this->_cache->delete($this->_createKey($method, $arguments));
+        return $this->_cache->delete($this->_createKey($method, $arguments));
     }
 }
