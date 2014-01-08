@@ -9,7 +9,7 @@ class CacheWrapper extends ObjectWrapper {
     /**
      * @var int
      */
-    protected $ttl;
+    protected $_ttl;
 
     public function __construct($object, Cache $cache, $ttl = 0) {
         $this->_cache = $cache;
@@ -20,7 +20,8 @@ class CacheWrapper extends ObjectWrapper {
     public function __call($method, $arguments) {
         $parts = explode('_', $method);
         $param = array_shift($parts);
-        $wrappedMethod = implode('_', $method);
+        $wrappedMethod = implode('_', $parts);
+           
 
         switch($param) {
             case 'flush' :
@@ -39,14 +40,14 @@ class CacheWrapper extends ObjectWrapper {
         $returnValue = $this->_cache->get($cacheKeyName);
         if (!$this->_cache->isHit()) {
             $returnValue = parent::__call($method, $arguments);
-            $this->_cache->set($cacheKeyName, $returnValue, $this->ttl);
+            $this->_cache->set($cacheKeyName, $returnValue, $this->_ttl);
         }
         return $returnValue;
     }
 
     private function _createKey($method, $arguments) {
         $printableArguments = implode(',', $arguments);
-        return sprintf('%s::%s(%s)', $this->getWrapped(), $method, $printableArguments);
+        return sprintf('%s::%s(%s)', get_class($this->getWrapped()), $method, $printableArguments);
     }
 
     private function _flushCache($method, $arguments) {
