@@ -5,7 +5,7 @@ class HTMLCacheDemo extends UseCase {
     const KEY_NAME = 'htmldemo';
  
     protected function init() {
-        HTMLCache::initialize($this->getMemcache(), 5);
+        HTMLCache::initialize($this->getMemcache(), 15);
     }
 
     public function execute() {
@@ -16,7 +16,7 @@ class HTMLCacheDemo extends UseCase {
             /** some extra heavy stuff **/ 
             $view->date = $date; 
             $view->render();
-           HTMLCache::write();
+            HTMLCache::write();
         }
         echo "<h3>PHP time is : $date </h3>\n";
 

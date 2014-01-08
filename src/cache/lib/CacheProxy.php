@@ -54,13 +54,3 @@ class CacheWrapper extends ObjectWrapper {
     }
 }
 
-
-class SessionHandler implements SessionHandlerInterface {
-
-    public bool close()
-    public bool destroy( string $session_id )
-    public bool gc( int $maxlifetime )
-    public bool open( string $save_path , string $session_id )
-    public strin gread( string $session_id )
-    public bool write( string $session_id , string $session_data )
-}

@@ -38,4 +38,3 @@ class ChainMemcache implements ChainRepo {
 
 
 }
-
